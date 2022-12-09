@@ -2,6 +2,7 @@ package com.bachpan.demo.service;
 
 import java.util.HashSet;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,8 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public void createUser(UserDTO userdto) {
 		User user = new User();
+		user.setUserName(userdto.getUsername());
+		user.setPassword(userdto.getPassword());
 		user.setFirstName(userdto.getFirstName());
 		user.setLastName(userdto.getLastName());
 		user.setFatherName(userdto.getFatherName());
@@ -37,7 +40,39 @@ public class UserServiceImpl implements UserService {
 		}
 
 		userRepositroy.save(user);
+       
+	}
 
+	@Override
+	public void deleteUser(Integer id) {
+		userRepositroy.deleteById(id);
+		
+	}
+
+	@Override
+	public void updateUser(Integer id, UserDTO userdto) {
+		User user=new User();
+		user.setId(id);
+		user.setUserName(userdto.getUsername());
+		user.setPassword(userdto.getPassword());
+		user.setFirstName(userdto.getFirstName());
+		user.setLastName(userdto.getLastName());
+		user.setFatherName(userdto.getFatherName());
+		user.setQualification(userdto.getQualification());
+		userRepositroy.save(user);
+     	
+	}
+
+	@Override
+	public User findByUserId(Integer id) {
+		 User user=userRepositroy.findById(id).orElse(null);
+		return user;
+	}
+
+	@Override
+	public List<User> findAllUserDetails() {
+    List<User>	userlist=(List<User>)userRepositroy.findAll();
+		return userlist;
 	}
 
 }

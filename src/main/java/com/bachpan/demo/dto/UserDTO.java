@@ -1,58 +1,61 @@
 package com.bachpan.demo.dto;
 
 public class UserDTO {
-
+   
+	private String username;
+	private Integer password;
 	private String firstName;
 	private String lastName;
 	private String fatherName;
-	private String Qualification;
+	private String qualification;
 	private String roleName;
-
-	public String getRoleName() {
-		return roleName;
+	public String getUsername() {
+		return username;
 	}
-
-	public void setRoleName(String roleName) {
-		this.roleName = roleName;
+	public void setUsername(String username) {
+		this.username = username;
 	}
-
-	
+	public Integer getPassword() {
+		return password;
+	}
+	public void setPassword(Integer password) {
+		this.password = password;
+	}
 	public String getFirstName() {
 		return firstName;
 	}
-
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
-
 	public String getLastName() {
 		return lastName;
 	}
-
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-
 	public String getFatherName() {
 		return fatherName;
 	}
-
 	public void setFatherName(String fatherName) {
 		this.fatherName = fatherName;
 	}
-
 	public String getQualification() {
-		return Qualification;
+		return qualification;
 	}
-
 	public void setQualification(String qualification) {
-		Qualification = qualification;
+		this.qualification = qualification;
 	}
-
+	public String getRoleName() {
+		return roleName;
+	}
+	public void setRoleName(String roleName) {
+		this.roleName = roleName;
+	}
 	@Override
 	public String toString() {
-		return "UserDTO [ firstName=" + firstName + ", lastName=" + lastName + ", fatherName="
-				+ fatherName + ", Qualification=" + Qualification + "]";
+		return "UserDTO [username=" + username + ", password=" + password + ", firstName=" + firstName + ", lastName="
+				+ lastName + ", fatherName=" + fatherName + ", qualification=" + qualification + ", roleName="
+				+ roleName + "]";
 	}
-
+	
 }
