@@ -23,6 +23,8 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public void createUser(UserDTO userdto) {
 		User user = new User();
+		user.setUserName(userdto.getUserName());
+		user.setPassword(userdto.getPassword());
 		user.setFirstName(userdto.getFirstName());
 		user.setLastName(userdto.getLastName());
 		user.setFatherName(userdto.getFatherName());
@@ -37,7 +39,31 @@ public class UserServiceImpl implements UserService {
 		}
 
 		userRepositroy.save(user);
+       
+	}
 
+	@Override
+	public void deleteUser(Integer id) {
+		userRepositroy.deleteById(id);
+		
+	}
+
+	@Override
+	public void updateUser(Integer id, UserDTO userdto) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public User findByUserId(Integer id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<User> findAllUserDetails() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
