@@ -16,7 +16,9 @@ public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
-	private String firstName;
+	private String userName;
+	private Integer password;
+    private String firstName;
 	private String lastName;
 	private String fatherName;
 	private String Qualification;
@@ -24,6 +26,21 @@ public class User {
 	@JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
 	private Set<Role> roles;
 
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
+	public Integer getPassword() {
+		return password;
+	}
+
+	public void setPassword(Integer password) {
+		this.password = password;
+	}
 	public Set<Role> getRoles() {
 		return roles;
 	}
@@ -74,8 +91,12 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", fatherName=" + fatherName
-				+ ", Qualification=" + Qualification + "]";
+		return "User [id=" + id + ", userName=" + userName + ", password=" + password + ", firstName=" + firstName
+				+ ", lastName=" + lastName + ", fatherName=" + fatherName + ", Qualification=" + Qualification
+				+ ", roles=" + roles + "]";
 	}
 
-}
+	
+	}
+
+
