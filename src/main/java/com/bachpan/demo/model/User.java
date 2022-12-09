@@ -1,15 +1,15 @@
 package com.bachpan.demo.model;
 
-import java.util.List;
+import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 
 @Entity
 public class User {
@@ -19,54 +19,63 @@ public class User {
 	private String firstName;
 	private String lastName;
 	private String fatherName;
-	private String  Qualification;
-	@OneToMany(targetEntity = Role.class,mappedBy="user", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	private List<Role> roles;
+	private String Qualification;
+	@ManyToMany(fetch=FetchType.LAZY)
+	@JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
+	private Set<Role> roles;
+
+	public Set<Role> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(Set<Role> roles) {
+		this.roles = roles;
+	}
+
 	public int getId() {
 		return id;
 	}
+
 	public void setId(int id) {
 		this.id = id;
 	}
+
 	public String getFirstName() {
 		return firstName;
 	}
+
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
+
 	public String getLastName() {
 		return lastName;
 	}
+
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
+
 	public String getFatherName() {
 		return fatherName;
 	}
+
 	public void setFatherName(String fatherName) {
 		this.fatherName = fatherName;
 	}
+
 	public String getQualification() {
 		return Qualification;
 	}
+
 	public void setQualification(String qualification) {
 		Qualification = qualification;
 	}
+
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", fatherName=" + fatherName
 				+ ", Qualification=" + Qualification + "]";
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 
 }
