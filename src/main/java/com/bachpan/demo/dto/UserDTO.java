@@ -2,7 +2,7 @@ package com.bachpan.demo.dto;
 
 public class UserDTO {
    
-	private String username;
+	private String userName;
 	private Integer password;
 	private String firstName;
 	private String lastName;
@@ -10,10 +10,10 @@ public class UserDTO {
 	private String qualification;
 	private String roleName;
 	public String getUsername() {
-		return username;
+		return userName;
 	}
 	public void setUsername(String username) {
-		this.username = username;
+		this.userName = username;
 	}
 	public Integer getPassword() {
 		return password;
@@ -53,9 +53,11 @@ public class UserDTO {
 	}
 	@Override
 	public String toString() {
-		return "UserDTO [username=" + username + ", password=" + password + ", firstName=" + firstName + ", lastName="
+		return "UserDTO [userName=" + userName + ", password=" + password + ", firstName=" + firstName + ", lastName="
 				+ lastName + ", fatherName=" + fatherName + ", qualification=" + qualification + ", roleName="
 				+ roleName + "]";
 	}
 	
-}
+	}
+	
+
