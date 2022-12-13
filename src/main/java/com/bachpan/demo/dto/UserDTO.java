@@ -7,74 +7,57 @@ public class UserDTO {
 	private String firstName;
 	private String lastName;
 	private String fatherName;
-	private String Qualification;
+	private String qualification;
 	private String roleName;
-	
-   public String getUserName() {
+	public String getUsername() {
 		return userName;
 	}
-
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setUsername(String username) {
+		this.userName = username;
 	}
-
 	public Integer getPassword() {
 		return password;
 	}
-
 	public void setPassword(Integer password) {
 		this.password = password;
 	}
-
-	public String getRoleName() {
-		return roleName;
-	}
-
-	public void setRoleName(String roleName) {
-		this.roleName = roleName;
-	}
-
-	
 	public String getFirstName() {
 		return firstName;
 	}
-
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
-
 	public String getLastName() {
 		return lastName;
 	}
-
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-
 	public String getFatherName() {
 		return fatherName;
 	}
-
 	public void setFatherName(String fatherName) {
 		this.fatherName = fatherName;
 	}
-
 	public String getQualification() {
-		return Qualification;
+		return qualification;
 	}
-
 	public void setQualification(String qualification) {
-		Qualification = qualification;
+		this.qualification = qualification;
 	}
-
+	public String getRoleName() {
+		return roleName;
+	}
+	public void setRoleName(String roleName) {
+		this.roleName = roleName;
+	}
 	@Override
 	public String toString() {
 		return "UserDTO [userName=" + userName + ", password=" + password + ", firstName=" + firstName + ", lastName="
-				+ lastName + ", fatherName=" + fatherName + ", Qualification=" + Qualification + ", roleName="
+				+ lastName + ", fatherName=" + fatherName + ", qualification=" + qualification + ", roleName="
 				+ roleName + "]";
 	}
-
 	
 	}
-
+	
 
