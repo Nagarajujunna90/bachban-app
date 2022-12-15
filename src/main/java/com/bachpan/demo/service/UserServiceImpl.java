@@ -23,7 +23,7 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public void createUser(UserDTO userdto) {
 		User user = new User();
-		user.setUserName(userdto.getUsername());
+		user.setUserName(userdto.getUserName());
 		user.setPassword(userdto.getPassword());
 		user.setFirstName(userdto.getFirstName());
 		user.setLastName(userdto.getLastName());
@@ -32,7 +32,7 @@ public class UserServiceImpl implements UserService {
 		List<Role> roles = roleRepository.findAll();
 		Set<Role> setRoles = new HashSet<>();
 		for (Role role : roles) {
-			if (userdto.getRoleName().equals(role.getName())) {
+			if (userdto.getFirstName().equals(role.getName())) {
 				setRoles.add(role);
 				user.setRoles(setRoles);
 			}
@@ -52,7 +52,7 @@ public class UserServiceImpl implements UserService {
 	public void updateUser(Integer id, UserDTO userdto) {
 		User user=new User();
 		user.setId(id);
-		user.setUserName(userdto.getUsername());
+		user.setUserName(userdto.getUserName());
 		user.setPassword(userdto.getPassword());
 		user.setFirstName(userdto.getFirstName());
 		user.setLastName(userdto.getLastName());

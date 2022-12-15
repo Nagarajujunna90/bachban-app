@@ -12,5 +12,6 @@ public interface UserService {
 	void updateUser(Integer id, UserDTO userdto);
 	public User findByUserId(Integer id);
 	List<User> findAllUserDetails();
+	
 
 }
