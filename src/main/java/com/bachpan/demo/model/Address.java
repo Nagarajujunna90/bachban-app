@@ -1,53 +1,50 @@
 package com.bachpan.demo.model;
 
-import java.util.Set;
-
-import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.ManyToOne;
+import org.apache.catalina.User;
 
 @Entity
-@Table(name="users")
-public class User {
+public class Address {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name="id")
 	private int id;
-	private String userName;
-	private Integer password;
-	private String firstName;
+	private String UserName;
+    private Integer password;
+    private String firstName;
 	private String lastName;
 	private String fatherName;
-	private String qualification;
-	private String village;
+	private String qualification; 
+ 	private String village;
 	private String mandal;
 	private String district;
 	private String state;
 	private String country;
 	private Integer pin;
-	@OneToMany(cascade=CascadeType.ALL)
-	@JoinColumn(name="addresss_id",referencedColumnName = "id")		
-	private Set<Role> roles;
-	private Address address;
 
-	public int getId() {
-		return id;
+	@ManyToOne(targetEntity =Address.class)
+	private User user;
+	
+	public User getUser() {
+		return user;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setUser(User user) {
+		this.user = user;
 	}
-
+     
 	public String getUserName() {
-		return userName;
+		return UserName;
 	}
+	
 
 	public void setUserName(String userName) {
-		this.userName = userName;
+		UserName = userName;
 	}
 
 	public Integer getPassword() {
@@ -88,6 +85,14 @@ public class User {
 
 	public void setQualification(String qualification) {
 		this.qualification = qualification;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getVillage() {
@@ -138,20 +143,14 @@ public class User {
 		this.pin = pin;
 	}
 
-	public Set<Role> getRoles() {
-		return roles;
-	}
-
-	public void setRoles(Set<Role> roles) {
-		this.roles = roles;
-	}
-
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", userName=" + userName + ", password=" + password + ", firstName=" + firstName
+		return "Address [id=" + id + ", UserName=" + UserName + ", password=" + password + ", firstName=" + firstName
 				+ ", lastName=" + lastName + ", fatherName=" + fatherName + ", qualification=" + qualification
 				+ ", village=" + village + ", mandal=" + mandal + ", district=" + district + ", state=" + state
-				+ ", country=" + country + ", pin=" + pin + ", roles=" + roles + "]";
+				+ ", country=" + country + ", pin=" + pin + ", user=" + user + "]";
 	}
+
+	
 
 }

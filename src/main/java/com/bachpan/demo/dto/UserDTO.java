@@ -8,12 +8,12 @@ public class UserDTO {
 	private String lastName;
 	private String fatherName;
 	private String qualification;
-	private String roleName;
-	public String getUsername() {
+	
+	public String getUserName() {
 		return userName;
 	}
-	public void setUsername(String username) {
-		this.userName = username;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 	public Integer getPassword() {
 		return password;
@@ -45,18 +45,15 @@ public class UserDTO {
 	public void setQualification(String qualification) {
 		this.qualification = qualification;
 	}
-	public String getRoleName() {
-		return roleName;
-	}
-	public void setRoleName(String roleName) {
-		this.roleName = roleName;
-	}
 	@Override
 	public String toString() {
 		return "UserDTO [userName=" + userName + ", password=" + password + ", firstName=" + firstName + ", lastName="
-				+ lastName + ", fatherName=" + fatherName + ", qualification=" + qualification + ", roleName="
-				+ roleName + "]";
+				+ lastName + ", fatherName=" + fatherName + ", qualification=" + qualification + "]";
 	}
+	
+	
+	
+	
 	
 	}
 	
